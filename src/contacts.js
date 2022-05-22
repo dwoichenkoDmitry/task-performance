@@ -21,12 +21,8 @@ const onScroll = (()=>{
     if (timeOut) {
       clearTimeout(timeOut);
     }
-
     timeOut = setTimeout(() => {
-      const topItemIndex  = items.findIndex((item) => contacts.scrollTop - item.offsetTop <= -18);
-      if (topItemIndex !== -1) {
-        stickyHeader.textContent = items[topItemIndex].textContent;
-      }
+      stickyHeader.textContent = ~~(contacts.scrollTop / 18);
     })
   }
 })();
